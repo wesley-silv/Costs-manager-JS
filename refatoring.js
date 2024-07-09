@@ -44,6 +44,13 @@ function managementValues() {
   const paymentResult = values.slice(1).reduce((acc, val) => acc + val, 0)
   const afterPayment = receivedValue - (tithe + paymentResult)
 
+  // Calculando a porcentagem de cada valor pago em relação ao valor recebido
+  const percentages = values
+    .slice(1)
+    .map(value => (value / receivedValue) * 100)
+  const meanPercentage =
+    percentages.reduce((acc, val) => acc + val, 0) / percentages.length
+
   if (paymentResult > 0) {
     displayResult(
       'results',
@@ -53,6 +60,20 @@ function managementValues() {
     displayResult(
       'after-payment-result',
       `Valor restante após o pagamento R$ ${afterPayment.toFixed(2)}`
+    )
+
+    // Exibindo a porcentagem de cada valor pago em relação ao valor recebido
+    displayResult(
+      'percent',
+      `Porcentagens em relação ao valor recebido: ${percentages
+        .map(p => p.toFixed(2) + '%')
+        .join(', ')}`
+    )
+
+    // Exibindo a média das porcentagens
+    displayResult(
+      'mean-percent',
+      `Média das porcentagens: ${meanPercentage.toFixed(2)}%`
     )
   } else {
     displayResult(
