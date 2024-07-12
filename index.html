@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-Br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +12,7 @@
     </div>
     <div class="container">
       <section>
-        <label for="received-value"
-          ><i class="bi bi-coin"></i> Valor Recebido</label
-        >
+        <label for="received-value">Valor recebido (Líquido)</label>
         <input
           type="number"
           id="received-value"
@@ -24,63 +22,61 @@
         />
       </section>
       <section>
-        <label for="car"><i class="bi bi-car-front"></i> Carro</label>
-        <input type="number" id="car" placeholder="Insira o valor" />
+        <label for="rent">Dízimo</label>
+        <input type="number" id="rent" placeholder="Insira o valor" disabled />
       </section>
       <section>
-        <label for="rent"><i class="bi bi-diagram-3"></i> Dízimo</label>
-        <input type="number" id="rent" placeholder="Insira o valor" />
-      </section>
-      <section>
-        <label for="cred-card"><i class="bi bi-credit-card"></i> Nubank</label>
-        <input type="number" id="cred-card" placeholder="Insira o valor" />
-      </section>
-      <section>
-        <label for="nubank-card"
-          ><i class="bi bi-credit-card-2-back"></i> Itaú</label
-        >
-        <input type="number" id="nubank-card" placeholder="Insira o valor" />
-      </section>
-      <section>
-        <label for="internet"><i class="bi bi-wifi"></i> Internet</label>
-        <input type="number" id="internet" placeholder="Insira o valor" />
-      </section>
-      <section>
-        <label for="water"><i class="bi bi-droplet-half"></i> Água</label>
-        <input type="number" id="water" placeholder="Insira o valor" />
-      </section>
-      <section>
-        <label for="eletric-energy"
-          ><i class="bi bi-lightning"></i> Energia Elétrica</label
-        >
-        <input type="number" id="eletric-energy" placeholder="Insira o valor" />
-      </section>
-      <section>
-        <label for="phone"><i class="bi bi-phone"></i> Telefone</label>
-        <input type="number" id="phone" placeholder="Insira o valor" />
-      </section>
-      <section>
-        <label for="foods"><i class="bi bi-shop"></i> Alimentos</label>
+        <label for="foods">Alimentação</label>
         <input type="number" id="foods" placeholder="Insira o valor" />
       </section>
       <section>
-        <label for="fuel"><i class="bi bi-fuel-pump"></i> Combustível</label>
-        <input type="number" id="fuel" placeholder="Insira o valor" />
+        <label for="home">Moradia</label>
+        <input type="number" id="home" placeholder="Insira o valor" />
       </section>
       <section>
-        <label for="others"><i class="bi bi-bag-plus"></i> Outros</label>
-        <input type="number" id="others" placeholder="Insira o valor" />
+        <label for="water">Água</label>
+        <input type="number" id="water" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="eletric-energy">Energia elétrica</label>
+        <input type="number" id="eletric-energy" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="internet">Internet</label>
+        <input type="number" id="internet" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="phone">Telefone</label>
+        <input type="number" id="phone" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="car">Transporte</label>
+        <input type="number" id="car" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="credit-cards">Cartões de crédito</label>
+        <input type="number" id="credit-cards" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="cook-gas">Gás de cozinha</label>
+        <input type="number" id="cook-gas" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="leisure">Lazer</label>
+        <input type="number" id="leisure" placeholder="Insira o valor" />
+      </section>
+      <section>
+        <label for="other-cost">Outros custos</label>
+        <input type="number" id="other-cost" placeholder="Insira o valor" />
       </section>
     </div>
     <div class="button-container">
-      <button onclick="managementValues()">
-        <i class="bi bi-bag-check"></i> Resultado
-      </button>
+      <button onclick="managementValues()">Resultado</button>
     </div>
-    <ul class="view-results">
-      <li id="results"></li>
+    <ul class="results">
+      <li id="result"></li>
       <li id="tithe"></li>
-      <li id="after-payment-result"></li>
+      <li id="after-payment"></li>
       <li id="percent"></li>
       <li id="mean-percent"></li>
     </ul>

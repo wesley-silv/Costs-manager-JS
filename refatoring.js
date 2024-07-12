@@ -13,15 +13,16 @@ function managementValues() {
     'received-value',
     'car',
     'rent',
-    'cred-card',
-    'nubank-card',
+    'credit-cards',
     'internet',
     'water',
     'eletric-energy',
     'phone',
-    'fuel',
+    'cook-gas',
     'foods',
-    'others'
+    'home',
+    'leisure',
+    'other-cost'
   ]
 
   const values = ids.map(id => getFloatValue(id))
@@ -29,56 +30,53 @@ function managementValues() {
     receivedValue,
     car,
     rent,
-    credCard,
-    nubankCard,
+    creditCards,
     internet,
     water,
     eletricEnergy,
     phone,
-    fuel,
+    cookGas,
     foods,
-    others
+    home,
+    leisure,
+    otherCost
   ] = values
 
   const tithe = receivedValue / 10
   const paymentResult = values.slice(1).reduce((acc, val) => acc + val, 0)
   const afterPayment = receivedValue - (tithe + paymentResult)
 
-  // Calculando a porcentagem de cada valor pago em relação ao valor recebido
   const percentages = values
     .slice(1)
     .map(value => (value / receivedValue) * 100)
   const meanPercentage =
     percentages.reduce((acc, val) => acc + val, 0) / percentages.length
 
+  const resultsContainer = document.querySelector('.view-results')
+
   if (paymentResult > 0) {
-    displayResult(
-      'results',
-      `Valor do pagamento R$ ${paymentResult.toFixed(2)}`
-    )
+    displayResult('result', `Valor do pagamento R$ ${paymentResult.toFixed(2)}`)
     displayResult('tithe', `Valor do dízimo R$ ${tithe.toFixed(2)}`)
     displayResult(
-      'after-payment-result',
+      'after-payment',
       `Valor restante após o pagamento R$ ${afterPayment.toFixed(2)}`
     )
-
-    // Exibindo a porcentagem de cada valor pago em relação ao valor recebido
     displayResult(
       'percent',
       `Porcentagens em relação ao valor recebido: ${percentages
         .map(p => p.toFixed(2) + '%')
         .join(', ')}`
     )
-
-    // Exibindo a média das porcentagens
     displayResult(
       'mean-percent',
       `Média das porcentagens: ${meanPercentage.toFixed(2)}%`
     )
+    resultsContainer.style.display = 'flex'
   } else {
     displayResult(
-      'results',
+      'result',
       `Resultado inválido! Insira os valores corretos em cada campo do formulário.`
     )
+    resultsContainer.style.display = 'none'
   }
 }
