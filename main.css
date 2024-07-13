@@ -80,7 +80,7 @@ button:hover {
   transform: translateY(-3px);
 }
 
-.view-results {
+.results {
   display: none;
   list-style: none;
   padding: 0;
@@ -90,7 +90,7 @@ button:hover {
   margin-top: 2em;
 }
 
-.view-results li {
+.results li {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -102,27 +102,27 @@ button:hover {
   transition: transform 0.3s ease;
 }
 
-.view-results li:hover {
+.results li:hover {
   transform: translateY(-5px);
 }
 
 @media (max-width: 1024px) {
   section,
-  .view-results li {
+  .results li {
     width: calc(33% - 2em);
   }
 }
 
 @media (max-width: 768px) {
   section,
-  .view-results li {
+  .results li {
     width: calc(50% - 2em);
   }
 }
 
 @media (max-width: 480px) {
   section,
-  .view-results li {
+  .results li {
     width: calc(100% - 2em);
   }
 
