@@ -11,16 +11,16 @@ function displayResult(id, message) {
 function managementValues() {
   const ids = [
     'received-value',
-    'car',
     'rent',
-    'credit-cards',
-    'internet',
-    'water',
-    'eletric-energy',
-    'phone',
-    'cook-gas',
     'foods',
     'home',
+    'water',
+    'eletric-energy',
+    'internet',
+    'phone',
+    'car',
+    'credit-cards',
+    'cook-gas',
     'leisure',
     'other-cost'
   ]
@@ -28,16 +28,16 @@ function managementValues() {
   const values = ids.map(id => getFloatValue(id))
   const [
     receivedValue,
-    car,
     rent,
-    creditCards,
-    internet,
-    water,
-    eletricEnergy,
-    phone,
-    cookGas,
     foods,
     home,
+    water,
+    eletricEnergy,
+    internet,
+    phone,
+    car,
+    creditCards,
+    cookGas,
     leisure,
     otherCost
   ] = values
@@ -74,8 +74,10 @@ function managementValues() {
     resultsContainer.style.display = 'flex'
   } else {
     displayResult(
+      // 'result',
+      // `Resultado inválido! Insira os valores corretos em cada campo do formulário.`
       'result',
-      `Resultado inválido! Insira os valores corretos em cada campo do formulário.`
+      alert('Preencha correntamente os campos do formulário!')
     )
     resultsContainer.style.display = 'none'
   }
