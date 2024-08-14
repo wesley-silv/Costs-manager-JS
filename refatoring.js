@@ -75,8 +75,7 @@ function managementValues() {
   } else {
     displayResult(
       // 'result',
-      // `Resultado inválido! Insira os valores corretos em cada campo do formulário.`
-      'result',
+      'result' !== undefined ? '' : 'result',
       alert('Preencha correntamente os campos do formulário!')
     )
     resultsContainer.style.display = 'none'
