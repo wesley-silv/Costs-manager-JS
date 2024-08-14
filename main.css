@@ -116,10 +116,11 @@ button:hover {
   section,
   .results li {
     width: calc(100% - 2em);
+    margin: 1em 2.5em;
   }
 
   button {
     width: calc(100% - 2em);
-    margin: 0 1em;
+    margin: 1em;
   }
 }
