@@ -87,6 +87,7 @@ button:hover {
 }
 
 .results li {
+  display: none;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -115,12 +116,12 @@ button:hover {
 @media (max-width: 480px) {
   section,
   .results li {
-    width: calc(100% - 2em);
-    margin: 1em 2.5em;
+    width: calc(100% - 5em);
+    margin: 1em;
   }
 
   button {
-    width: calc(100% - 2em);
+    width: calc(100% - 5em);
     margin: 1em;
   }
 }

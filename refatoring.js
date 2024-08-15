@@ -74,7 +74,6 @@ function managementValues() {
     resultsContainer.style.display = 'flex'
   } else {
     displayResult(
-      // 'result',
       'result' !== undefined ? '' : 'result',
       alert('Preencha correntamente os campos do formulário!')
     )
