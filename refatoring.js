@@ -55,21 +55,21 @@ function managementValues() {
   const resultsContainer = document.querySelector('.view-results')
 
   if (paymentResult > 0) {
-    displayResult('result', `Valor do pagamento R$ ${paymentResult.toFixed(2)}`)
-    displayResult('tithe', `Valor do dízimo R$ ${tithe.toFixed(2)}`)
+    displayResult('result', `Custo total: R$ ${paymentResult.toFixed(2)}`)
+    displayResult('tithe', `Dízimo: R$ ${tithe.toFixed(2)}`)
     displayResult(
       'after-payment',
-      `Valor restante após o pagamento R$ ${afterPayment.toFixed(2)}`
+      `Proventos restantes: R$ ${afterPayment.toFixed(2)}`
     )
     displayResult(
       'percent',
-      `Porcentagens em relação ao valor recebido: ${percentages
+      `Custos percentuais: ${percentages
         .map(p => p.toFixed(2) + '%')
         .join(', ')}`
     )
     displayResult(
       'mean-percent',
-      `Média das porcentagens: ${meanPercentage.toFixed(2)}%`
+      `Médias percentuais: ${meanPercentage.toFixed(2)}%`
     )
     resultsContainer.style.display = 'flex'
   } else {

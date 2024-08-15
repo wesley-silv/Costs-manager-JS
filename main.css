@@ -114,14 +114,18 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  section,
+  section {
+    width: calc(100% - 3em);
+    margin: 0.5em;
+  }
+
   .results li {
     width: calc(100% - 5em);
-    margin: 1em;
+    margin: 0.5em;
   }
 
   button {
-    width: calc(100% - 5em);
+    width: calc(100% - 3em);
     margin: 1em;
   }
 }
