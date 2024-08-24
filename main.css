@@ -50,9 +50,8 @@ section input {
   transition: border-color 0.3s ease;
 }
 
-section input:focus {
-  border-color: #007bff;
-  outline: none;
+section #rent {
+  display: none;
 }
 
 .button-container {
