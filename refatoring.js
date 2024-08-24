@@ -6,21 +6,25 @@ function displayResult(id, message) {
   const element = document.getElementById(id)
   element.style.display = 'block'
   element.innerHTML = message
+
+  // // Converte a string "message" para número
+  // const numericMessage = parseFloat(message)
+  // // Define a cor de fundo do elemento com base no valor numérico
+  // element.style.backgroundColor = numericMessage <= 0 ? '#ff0000' : '#00ff00'
 }
 
 function managementValues() {
   const ids = [
     'received-value',
-    'rent',
     'foods',
     'home',
     'water',
     'eletric-energy',
+    'cook-gas',
     'internet',
     'phone',
     'car',
     'credit-cards',
-    'cook-gas',
     'leisure',
     'other-cost'
   ]
@@ -28,16 +32,15 @@ function managementValues() {
   const values = ids.map(id => getFloatValue(id))
   const [
     receivedValue,
-    rent,
     foods,
     home,
     water,
     eletricEnergy,
+    cookGas,
     internet,
     phone,
     car,
     creditCards,
-    cookGas,
     leisure,
     otherCost
   ] = values
@@ -46,11 +49,13 @@ function managementValues() {
   const paymentResult = values.slice(1).reduce((acc, val) => acc + val, 0)
   const afterPayment = receivedValue - (tithe + paymentResult)
 
+  // Corrigindo o cálculo da média percentual
+  const totalPercentage = (paymentResult / receivedValue) * 100
+  const meanPercentage = totalPercentage / (values.length - 1)
+
   const percentages = values
     .slice(1)
     .map(value => (value / receivedValue) * 100)
-  const meanPercentage =
-    percentages.reduce((acc, val) => acc + val, 0) / percentages.length
 
   const resultsContainer = document.querySelector('.view-results')
 
@@ -75,7 +80,7 @@ function managementValues() {
   } else {
     displayResult(
       'result' !== undefined ? '' : 'result',
-      alert('Preencha correntamente os campos do formulário!')
+      alert('Preencha corretamento os campos do formulário!'.toUpperCase())
     )
     resultsContainer.style.display = 'none'
   }
