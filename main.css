@@ -1,3 +1,5 @@
+@import url(./styles/table-results.css);
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
@@ -73,58 +75,4 @@ button {
 button:hover {
   background-color: #0056b3;
   transform: translateY(-3px);
-}
-
-.results {
-  display: none;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 2em;
-}
-
-.results li {
-  display: none;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 0.5em;
-  padding: 1em;
-  width: calc(25% - 2em);
-  min-width: 200px;
-  text-align: left;
-  transition: transform 0.3s ease;
-}
-
-@media (max-width: 1024px) {
-  section,
-  .results li {
-    width: calc(33% - 2em);
-  }
-}
-
-@media (max-width: 768px) {
-  section,
-  .results li {
-    width: calc(50% - 2em);
-  }
-}
-
-@media (max-width: 480px) {
-  section {
-    width: calc(100% - 3em);
-    margin: 0.5em;
-  }
-
-  .results li {
-    width: calc(100% - 5em);
-    margin: 0.5em;
-  }
-
-  button {
-    width: calc(100% - 3em);
-    margin: 1em;
-  }
 }
