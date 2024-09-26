@@ -60,27 +60,19 @@ function managementValues() {
   const resultsContainer = document.querySelector('.view-results')
 
   if (paymentResult > 0) {
-    displayResult('result', `Custo total: R$ ${paymentResult.toFixed(2)}`)
-    displayResult('tithe', `Dízimo: R$ ${tithe.toFixed(2)}`)
-    displayResult(
-      'after-payment',
-      `Proventos restantes: R$ ${afterPayment.toFixed(2)}`
-    )
+    displayResult('result', `R$ ${paymentResult.toFixed(2)}`)
+    displayResult('tithe', `R$ ${tithe.toFixed(2)}`)
+    displayResult('after-payment', `R$ ${afterPayment.toFixed(2)}`)
     displayResult(
       'percent',
-      `Custos percentuais: ${percentages
-        .map(p => p.toFixed(2) + '%')
-        .join(', ')}`
+      `${percentages.map(p => p.toFixed(2) + '%').join(', ')}`
     )
-    displayResult(
-      'mean-percent',
-      `Médias percentuais: ${meanPercentage.toFixed(2)}%`
-    )
+    displayResult('mean-percent', `${meanPercentage.toFixed(2)}%`)
     resultsContainer.style.display = 'flex'
   } else {
     displayResult(
       'result' !== undefined ? '' : 'result',
-      alert('Preencha corretamento os campos do formulário!'.toUpperCase())
+      alert('Preencha corretamente os campos do formulário!')
     )
     resultsContainer.style.display = 'none'
   }

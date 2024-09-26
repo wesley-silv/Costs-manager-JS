@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
-    <title>Gerenciador de Custos</title>
+    <title>Gerenciador financeiro</title>
   </head>
   <body>
     <div class="header">
-      <h1>Gerenciador de Custos</h1>
+      <h1>Gerenciador Financeiro</h1>
     </div>
     <div class="container">
       <section>
@@ -75,15 +75,31 @@
       </section>
     </div>
     <div class="button-container">
-      <button onclick="managementValues()">Veja os Resultados</button>
+      <button onclick="managementValues()">Visualizar resultados</button>
     </div>
-    <ul class="results">
-      <li id="result"></li>
-      <li id="tithe"></li>
-      <li id="after-payment"></li>
-      <li id="percent"></li>
-      <li id="mean-percent"></li>
-    </ul>
+    <div class="table-container">
+      <table class="results">
+        <thead>
+          <tr>
+            <th>Despesas</th>
+            <th>Dízimo</th>
+            <th>Proventos restantes</th>
+            <th>Percentuais</th>
+            <th>Média percentual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="result"></td>
+            <td id="tithe"></td>
+            <td id="after-payment"></td>
+            <td id="percent"></td>
+            <td id="mean-percent"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <script src="refatoring.js"></script>
   </body>
 </html>
