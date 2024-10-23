@@ -1,126 +1,143 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/table-results.css" />
-    <title>Gerenciador financeiro</title>
+    <title>Gerenciador Financeiro</title>
   </head>
   <body>
-    <nav class="header">
+    <header class="navigation">
       <h1>Gerenciador Financeiro</h1>
-    </nav>
+    </header>
+
     <main class="main-container">
-      <div class="proceeds">
-        <section>
+      <!-- Seção de Provisões e Ganhos -->
+      <section aria-labelledby="proceeds-heading" class="proceeds">
+        <h2 id="proceeds-heading">Provisões e Ganhos</h2>
+        <div>
           <label for="provments">Provisões</label>
           <input
             type="number"
             id="provments"
-            autofocus
-            required
+            aria-describedby="provments-description"
             placeholder="Digite o valor R$"
+            required
           />
-        </section>
-        <section>
-          <label for="extra-gain">Ganhos extra</label>
+        </div>
+        <div>
+          <label for="extra-gain">Ganhos extras</label>
           <input
             type="number"
             id="extra-gain"
-            autofocus
-            required
             placeholder="Digite o valor R$"
+            required
           />
-        </section>
-      </div>
-      <div class="essentials">
-        <section>
+        </div>
+      </section>
+
+      <!-- Seção de Despesas Essenciais -->
+      <section aria-labelledby="essentials-heading" class="essentials">
+        <h2 id="essentials-heading">Despesas Essenciais</h2>
+        <div>
           <label for="foods">Alimentação</label>
           <input type="number" id="foods" placeholder="Digite o valor R$" />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="home">Moradia</label>
           <input type="number" id="home" placeholder="Digite o valor R$" />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="water">Água</label>
           <input type="number" id="water" placeholder="Digite o valor R$" />
-        </section>
-        <section>
-          <label for="eletric-energy">Energia elétrica</label>
+        </div>
+        <div>
+          <label for="electric-energy">Energia Elétrica</label>
           <input
             type="number"
-            id="eletric-energy"
+            id="electric-energy"
             placeholder="Digite o valor R$"
           />
-        </section>
-        <section>
-          <label for="cook-gas">Gás de cozinha</label>
+        </div>
+        <div>
+          <label for="cook-gas">Gás de Cozinha</label>
           <input type="number" id="cook-gas" placeholder="Digite o valor R$" />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="internet">Internet</label>
           <input type="number" id="internet" placeholder="Digite o valor R$" />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="phone">Telefone</label>
           <input type="number" id="phone" placeholder="Digite o valor R$" />
-        </section>
-      </div>
-      <div class="not-essentials">
-        <section>
+        </div>
+      </section>
+
+      <!-- Seção de Despesas Não Essenciais -->
+      <section aria-labelledby="not-essentials-heading" class="not-essentials">
+        <h2 id="not-essentials-heading">Despesas Não Essenciais</h2>
+        <div>
           <label for="credit">Crédito</label>
           <input type="number" id="credit" placeholder="Digite o valor R$" />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="leisure">Lazer</label>
           <input type="number" id="leisure" placeholder="Digite o valor R$" />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="clothing">Vestuário</label>
           <input type="number" id="clothing" placeholder="Digite o valor R$" />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="car">Transporte</label>
           <input type="number" id="car" placeholder="Digite o valor R$" />
-        </section>
-      </div>
-      <div class="investments">
-        <section>
-          <label for="fixed-income">Renda fixa</label>
+        </div>
+      </section>
+
+      <!-- Seção de Investimentos -->
+      <section aria-labelledby="investments-heading" class="investments">
+        <h2 id="investments-heading">Investimentos</h2>
+        <div>
+          <label for="fixed-income">Renda Fixa</label>
           <input
             type="number"
             id="fixed-income"
             placeholder="Digite o valor R$"
           />
-        </section>
-        <section>
-          <label for="variable-income">Renda variável</label>
+        </div>
+        <div>
+          <label for="variable-income">Renda Variável</label>
           <input
             type="number"
             id="variable-income"
             placeholder="Digite o valor R$"
           />
-        </section>
-        <section>
+        </div>
+        <div>
           <label for="savings">Poupança</label>
           <input type="number" id="savings" placeholder="Digite o valor R$" />
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
-    <div class="button-container">
-      <button onclick="managementValues()">Visualizar resultados</button>
+
+    <!-- Botão de Visualizar Resultados -->
+    <div class="button-results">
+      <button role="button" aria-label="Visualizar resultados">
+        Visualizar Resultados
+      </button>
     </div>
-    <div class="table-container">
+
+    <!-- Tabela de Resultados -->
+    <div class="table-container" aria-live="polite">
       <table class="results">
         <thead>
           <tr>
-            <th>Despesas</th>
-            <th>Dízimo</th>
-            <th>Proventos restantes</th>
-            <th>Percentuais</th>
-            <th>Média percentual</th>
+            <th scope="col">Despesas</th>
+            <th scope="col">Dízimo</th>
+            <th scope="col">Proventos Restantes</th>
+            <th scope="col">Percentuais</th>
+            <th scope="col">Média Percentual</th>
           </tr>
         </thead>
         <tbody>
@@ -135,6 +152,6 @@
       </table>
     </div>
 
-    <script src="/main.js"></script>
+    <script src="/scripts/main.js"></script>
   </body>
 </html>

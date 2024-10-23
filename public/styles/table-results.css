@@ -1,93 +1,56 @@
-/* Container para garantir a responsividade */
 .table-container {
-  width: 90%;
+  margin-top: 40px;
+  max-width: 1200px;
   overflow-x: auto;
-  margin: 3rem auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilização da tabela */
-.results {
+table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #fff;
-  font-size: 16px;
-  text-align: left;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.results thead {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.results th,
-.results td {
-  padding: 16px;
+th,
+td {
+  padding: 15px;
+  text-align: center;
   border: 1px solid #ddd;
 }
 
-.results tbody tr {
-  transition: background-color 0.2s;
+th {
+  background-color: #4caf50;
+  color: white;
+  text-transform: uppercase;
 }
 
-.results tbody tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* Estilo alternado nas linhas */
-.results tbody tr:nth-child(even) {
+tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Responsividade */
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Ajustes para tabelas em dispositivos menores */
 @media (max-width: 768px) {
-  .results thead {
-    display: none;
+  table {
+    font-size: 0.85em;
   }
 
-  .results tbody tr {
-    display: block;
-    margin-bottom: 10px;
+  th,
+  td {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  table {
+    font-size: 1em;
   }
 
-  .results tbody td {
-    display: block;
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .results tbody td:before {
-    content: attr(data-label);
-    position: absolute;
-    left: 0;
-    width: 50%;
-    padding-left: 15px;
-    font-weight: bold;
-    color: #007bff;
-    text-align: left;
-  }
-
-  /* Atribuindo os labels corretos para a responsividade */
-  #result:before {
-    content: 'Despesas';
-  }
-
-  #tithe:before {
-    content: 'Dízimo';
-  }
-
-  #after-payment:before {
-    content: 'Proventos restantes';
-  }
-
-  #percent:before {
-    content: 'Percentuais';
-  }
-
-  #mean-percent:before {
-    content: 'Média percentual';
+  th,
+  td {
+    padding: 15px;
   }
 }
