@@ -1,53 +1,81 @@
-// My old JavaScript code
+function getFloatValue(id) {
+  return parseFloat(document.getElementById(id).value) || 0
+}
+
+function displayResult(id, message) {
+  const element = document.getElementById(id)
+  element.style.display = 'block'
+  element.innerHTML = message
+}
 
 function managementValues() {
-  let receivedValue = parseFloat(
-    document.getElementById('received-value').value
-  )
-  let tithe = receivedValue / 10
-  let car = parseFloat(document.getElementById('car').value)
-  let rent = parseFloat(document.getElementById('rent').value)
-  let credeCard = parseFloat(document.getElementById('cred-card').value)
-  let nubankCard = parseFloat(document.getElementById('nubank-card').value)
-  let internet = parseFloat(document.getElementById('internet').value)
-  let water = parseFloat(document.getElementById('water').value)
-  let eletricEnergy = parseFloat(
-    document.getElementById('eletric-energy').value
-  )
-  let phone = parseFloat(document.getElementById('phone').value)
-  let fuel = parseFloat(document.getElementById('fuel').value)
-  let foods = parseFloat(document.getElementById('foods').value)
-  let others = parseFloat(document.getElementById('others').value)
-  let paymentResult =
-    car +
-    rent +
-    credeCard +
-    nubankCard +
-    internet +
-    water +
-    eletricEnergy +
-    phone +
-    fuel +
-    foods +
-    others
+  const ids = [
+    'received-value',
+    'foods',
+    'home',
+    'water',
+    'eletric-energy',
+    'cook-gas',
+    'internet',
+    'phone',
+    'car',
+    'credit-cards',
+    'leisure',
+    'other-cost'
+  ]
 
-  let afterPayment = receivedValue - (tithe + paymentResult)
+  const values = ids.map(id => getFloatValue(id))
+  const [
+    receivedValue,
+    foods,
+    home,
+    water,
+    eletricEnergy,
+    cookGas,
+    internet,
+    phone,
+    car,
+    creditCards,
+    leisure,
+    otherCost
+  ] = values
 
-  if (paymentResult != 0) {
-    let viewResult = document.getElementById('results')
-    viewResult.style.display = 'block'
-    viewResult.innerHTML = `Payment result R$ ${paymentResult}`
+  const tithe = receivedValue / 10
+  const paymentResult = values.slice(1).reduce((acc, val) => acc + val, 0)
+  const afterPayment = receivedValue - (tithe + paymentResult)
 
-    let titheResult = document.getElementById('tithe')
-    titheResult.style.display = 'block'
-    titheResult.innerHTML = `Tithe result R$ ${tithe}`
+  const totalPercentage = (paymentResult / receivedValue) * 100
+  const meanPercentage = totalPercentage / (values.length - 1)
 
-    let payment = document.getElementById('after-payment-result')
-    payment.style.display = 'block'
-    payment.innerHTML = `Alfter paymente result R$ ${afterPayment}`
+  const percentages = values
+    .slice(1)
+    .map(value => (value / receivedValue) * 100)
+
+  const resultsContainer = document.querySelector('.view-results')
+
+  if (paymentResult > 0) {
+    displayResult('result', `Custo total: R$ ${paymentResult.toFixed(2)}`)
+    displayResult('tithe', `Dízimo: R$ ${tithe.toFixed(2)}`)
+    displayResult(
+      'after-payment',
+      `Proventos restantes: R$ ${afterPayment.toFixed(2)}`
+    )
+    displayResult(
+      'percent',
+      `Custos percentuais: ${percentages
+        .map(p => p.toFixed(2) + '%')
+        .join(', ')}`
+    )
+    displayResult(
+      'mean-percent',
+      `Médias percentuais: ${meanPercentage.toFixed(2)}%`
+    )
+    resultsContainer.style.display = 'flex'
   } else {
-    let invalidResult = document.getElementById('results')
-    invalidResult.style.display = 'block'
-    invalidResult.innerHTML = `Invalid result! Please insert the respective values in each field.`
+    displayResult(
+      'result' !== undefined ? '' : 'result',
+      alert('Preencha corretamento os campos do formulário!'.toUpperCase())
+    )
+    resultsContainer.style.display = 'none'
   }
 }
