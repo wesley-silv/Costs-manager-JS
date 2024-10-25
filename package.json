@@ -13,6 +13,13 @@
     "express": "^4.21.1",
     "nodemon": "^3.1.7"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "description": "",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
