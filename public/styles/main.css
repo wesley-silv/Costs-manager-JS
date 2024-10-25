@@ -20,7 +20,7 @@ h1 {
 
 h2 {
   text-align: center;
-  margin: 5px auto 1rem;
+  margin: 5px auto 2rem;
 }
 
 .navigation {
@@ -41,29 +41,30 @@ h2 {
 section {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 12px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 section label {
-  display: inline-block;
-  margin-bottom: 8px;
+  display: block;
+  margin: 0.2rem;
   font-weight: bold;
 }
 
 section input {
-  display: inline-block;
+  display: block;
   padding: 12px;
+  margin: 0.2rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
 }
 
-.button-results {
+.view-results {
   text-align: center;
-  margin-top: 20px;
+  margin: 2rem;
 }
 
 button {
@@ -79,6 +80,7 @@ button {
 
 button:hover {
   background-color: #45a049;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {

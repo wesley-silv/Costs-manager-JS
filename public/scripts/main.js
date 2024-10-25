@@ -8,8 +8,8 @@ function displayResult(id, message) {
   element.innerHTML = message
 }
 
-document
-  .querySelector('.button-results')
+const viewResults = document
+  .querySelector('.view-results')
   .addEventListener('click', function () {
     const ids = [
       'provments',
