@@ -4,7 +4,6 @@ function getFloatValue(id) {
 
 function displayResult(id, message) {
   const element = document.getElementById(id)
-  element.style.display = 'block'
   element.innerHTML = message
 }
 
@@ -50,14 +49,14 @@ const viewResults = document
       savings
     ] = values
 
-    const paymentResult = values.slice(1).reduce((acc, val) => acc + val, 0)
+    const paymentResult = values.slice(2).reduce((acc, val) => acc + val, 0)
     const tithe = (provments + extraGain) / 10
     const afterPayment = provments - (tithe + paymentResult)
 
     const totalPercentage = (paymentResult / provments) * 100
-    const meanPercentage = totalPercentage / (values.length - 1)
+    const meanPercentage = totalPercentage / (values.length - 2)
 
-    const percentages = values.slice(1).map(value => (value / provments) * 100)
+    const percentages = values.slice(2).map(value => (value / provments) * 100)
 
     const resultsContainer = document.querySelector('.table-container')
 
