@@ -47,6 +47,10 @@ section {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+section div {
+  margin: 0.5rem;
+}
+
 section label {
   display: block;
   margin: 0.2rem;
@@ -80,7 +84,6 @@ button {
 
 button:hover {
   background-color: #45a049;
-  font-weight: bold;
 }
 
 @media (min-width: 768px) {

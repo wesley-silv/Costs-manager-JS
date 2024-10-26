@@ -70,6 +70,9 @@ const viewResults = document
       )
       displayResult('mean-percent', `${meanPercentage.toFixed(2)}%`)
       resultsContainer.style.display = 'flex'
+
+      // Provide the view authomatically of table
+      resultsContainer.scrollIntoView({ behavior: 'smooth' })
     } else {
       alert('Preencha corretamente os campos do formulário!')
       resultsContainer.style.display = 'none'
