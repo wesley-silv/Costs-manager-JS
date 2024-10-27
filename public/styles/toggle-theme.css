@@ -1,0 +1,27 @@
+.controls {
+  display: flex;
+  justify-content: right;
+}
+
+#toggle-theme {
+  padding: 10px 15px;
+  border: solid 2px #45a049;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#toggle-theme:hover {
+  background-color: #45a049;
+}
+
+body.dark-theme {
+  background-color: #170c0c;
+  color: #e0e0e0;
+}
+
+.dark-theme .navigation {
+  background-color: #333;
+}
