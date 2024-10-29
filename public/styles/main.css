@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +10,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   background-color: #f8f9fa;
   color: #000;
 }
@@ -25,11 +29,12 @@ h2 {
 
 .navigation {
   background-color: #4caf50;
-  color: white;
+  color: #fff;
   padding: 1.4rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Align the content in vertical */
 }
 
 .main-container {
@@ -69,9 +74,19 @@ section input {
   border-radius: 4px;
 }
 
+section input[type='number']::-webkit-inner-spin-button,
+section input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+section input:checked {
+  visibility: collapse;
+}
+
 .view-results {
   text-align: center;
-  margin: 2rem;
+  margin: 4rem;
 }
 
 button {

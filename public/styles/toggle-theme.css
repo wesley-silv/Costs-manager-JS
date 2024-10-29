@@ -26,6 +26,38 @@ body.dark-theme {
   background-color: #333;
 }
 
+.dark-theme #toggle-theme,
+.dark-theme .view-results button {
+  background-color: #36366c;
+  color: #e0e0e0;
+  border: none;
+}
+
+.dark-theme section {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.dark-theme label {
+  color: #e0e0e0;
+}
+
+.dark-theme input {
+  background-color: #170c0c;
+  border: none;
+  color: #e0e0e0;
+}
+
+/* Toggle theme of table */
+.dark-theme th {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.dark-theme tbody tr:hover {
+  background-color: #36366c;
+}
+
 @media (max-width: 425px) {
   #toggle-theme {
     margin: auto 0.8rem;

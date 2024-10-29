@@ -21,7 +21,7 @@ td {
 
 th {
   background-color: #4caf50;
-  color: white;
+  color: #fff;
 }
 
 tbody tr:nth-child(even) {
