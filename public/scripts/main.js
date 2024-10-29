@@ -1,23 +1,24 @@
-// Função para pegar valores numéricos dos inputs
+// Take the values of inputs and chack if they are NaN
 function getFloatValue(id) {
   return parseFloat(document.getElementById(id).value) || 0
 }
 
+// Build the message to presentation
 function displayResult(id, message) {
   const element = document.getElementById(id)
   element.innerHTML = message
 }
 
-// Função para criar ou atualizar o gráfico de pizza
+// Fuction to check and update Pie Chart
 function updateChart(percentages, labels) {
   const ctx = document.getElementById('percentChart').getContext('2d')
 
-  // Destroi o gráfico anterior se existir
+  // Conditions to destroy the Pie Chart for case exists
   if (window.myPieChart) {
     window.myPieChart.destroy()
   }
 
-  // Cria um novo gráfico de pizza
+  // Create a new Pie Chart
   window.myPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
@@ -48,7 +49,7 @@ function updateChart(percentages, labels) {
   })
 }
 
-// Listener para o botão "Visualizar Resultados"
+// Event to view results
 document
   .querySelector('.view-results button')
   .addEventListener('click', function () {
@@ -71,7 +72,7 @@ document
       'savings'
     ]
 
-    // Obtém valores dos inputs e define variáveis
+    // Obtain the values of inputs and define tha variables
     const values = ids.map(id => getFloatValue(id))
     const [
       provments,
@@ -92,7 +93,7 @@ document
       savings
     ] = values
 
-    // Calcula valores financeiros
+    // Realize the math calcs
     const totalProvments = provments + extraGain
     if (totalProvments === 0) {
       alert('Por favor, preencha os campos de provisões e ganhos extras.')
@@ -103,7 +104,7 @@ document
     const tithe = totalProvments / 10
     const afterPayment = totalProvments - (tithe + paymentResult)
 
-    // Calcula percentuais e média percentual
+    // Calc the mean and mean percent
     const percentages = values
       .slice(2)
       .map(value => ((value / totalProvments) * 100).toFixed(2))
@@ -115,7 +116,7 @@ document
       .slice(2)
       .map(id => document.querySelector(`label[for=${id}]`).textContent)
 
-    // Atualiza a tabela com resultados
+    // Update the Results table
     const resultsContainer = document.querySelector('.table-container')
     if (paymentResult > 0) {
       displayResult('result', `R$ ${paymentResult.toFixed(2)}`)
@@ -125,10 +126,10 @@ document
       displayResult('mean-percent', `${meanPercentage.toFixed(2)}%`)
       resultsContainer.style.display = 'flex'
 
-      // Atualiza o gráfico de pizza
+      // Update the Pie Chart
       updateChart(percentages, expenseLabels)
 
-      // Rola automaticamente para a tabela e o gráfico
+      // Scroll authomaticaly for the table and chart
       resultsContainer.scrollIntoView({ behavior: 'smooth' })
     } else {
       alert('Preencha corretamente os campos do formulário!')

@@ -4,8 +4,7 @@
 }
 
 #toggle-theme {
-  padding: 10px 15px;
-  border: solid 2px #45a049;
+  border: solid 2.5px #45a049;
   border-radius: 5px;
   background-color: #4caf50;
   color: #fff;
@@ -23,11 +22,12 @@ body.dark-theme {
   color: #e0e0e0;
 }
 
-section.dark-theme {
-  background-color: #170c0c;
-  color: #e0e0e0;
-}
-
 .dark-theme .navigation {
   background-color: #333;
+}
+
+@media (max-width: 425px) {
+  #toggle-theme {
+    margin: auto 0.8rem;
+  }
 }
