@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/toggle-theme.css" />
     <link rel="stylesheet" href="/styles/table-results.css" />
+    <link rel="stylesheet" href="/styles/graphic.css" />
     <title>Gerenciador Financeiro</title>
   </head>
   <body>
@@ -97,8 +98,8 @@
           <input type="number" id="clothing" placeholder="Digite o valor R$" />
         </div>
         <div>
-          <label for="car">Transporte</label>
-          <input type="number" id="car" placeholder="Digite o valor R$" />
+          <label for="transport">Transporte</label>
+          <input type="number" id="transport" placeholder="Digite o valor R$" />
         </div>
       </section>
 
@@ -154,8 +155,11 @@
           </tr>
         </tbody>
       </table>
+      <div class="chart-container">
+        <canvas id="percentChart" width="400" height="400"></canvas>
+      </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/scripts/main.js"></script>
     <script src="/scripts/toggle-theme.js"></script>
   </body>
