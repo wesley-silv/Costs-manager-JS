@@ -1,5 +1,7 @@
 .chart-container {
   display: flex;
+  max-width: 25%;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  margin: 2rem 0;
 }
