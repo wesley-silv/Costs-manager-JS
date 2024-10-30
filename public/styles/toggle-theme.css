@@ -4,17 +4,13 @@
 }
 
 #toggle-theme {
+  font-size: 1.5rem;
   border: solid 2.5px #45a049;
   border-radius: 5px;
-  background-color: #4caf50;
-  color: #fff;
+  padding: 0.4rem;
+  color: #e0e0e0;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-}
-
-#toggle-theme:hover {
-  background-color: #45a049;
-  transform: scale(1.025);
 }
 
 body.dark-theme {
@@ -26,11 +22,10 @@ body.dark-theme {
   background-color: #333;
 }
 
-.dark-theme #toggle-theme,
 .dark-theme .view-results button {
   background-color: #36366c;
+  border: solid 2.5px #36366c;
   color: #e0e0e0;
-  border: none;
 }
 
 .dark-theme section {

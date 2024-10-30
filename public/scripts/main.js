@@ -12,13 +12,11 @@ function displayResult(id, message) {
 // Fuction to check and update Pie Chart
 function updateChart(percentages, labels) {
   const ctx = document.getElementById('percentChart').getContext('2d')
-
-  // Conditions to destroy the Pie Chart for case exists
   if (window.myPieChart) {
     window.myPieChart.destroy()
   }
 
-  // Create a new Pie Chart
+  // Fuction to create Pie Chart
   window.myPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
@@ -34,7 +32,9 @@ function updateChart(percentages, labels) {
             '#4BC0C0',
             '#9966FF',
             '#C9CBCF'
-          ]
+          ],
+          borderColor: ['#ffffff'],
+          borderWidth: 1
         }
       ]
     },
@@ -42,7 +42,23 @@ function updateChart(percentages, labels) {
       responsive: true,
       plugins: {
         legend: {
-          position: 'bottom'
+          position: 'left',
+          align: 'start',
+          labels: {
+            boxWidth: 20,
+            padding: 15,
+            font: {
+              size: 14,
+              family: 'Arial'
+            },
+            color: '#333'
+          }
+        },
+        layout: {
+          padding: {
+            left: 20,
+            right: 20
+          }
         }
       }
     }
@@ -111,7 +127,7 @@ document
     const meanPercentage =
       ((paymentResult / totalProvments) * 100) / (values.length - 2)
 
-    // Rótulos para as despesas (obtém texto dos labels)
+    // Rótulos para as despesas (obtain the text of labels)
     const expenseLabels = ids
       .slice(2)
       .map(id => document.querySelector(`label[for=${id}]`).textContent)
