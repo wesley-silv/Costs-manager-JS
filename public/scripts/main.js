@@ -12,6 +12,8 @@ function displayResult(id, message) {
 // Fuction to check and update Pie Chart
 function updateChart(percentages, labels) {
   const ctx = document.getElementById('percentChart').getContext('2d')
+
+  // Conditions to destroy the Pie Chart for case exists
   if (window.myPieChart) {
     window.myPieChart.destroy()
   }
