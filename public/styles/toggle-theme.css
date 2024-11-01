@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+
 .controls {
   display: flex;
   justify-content: right;
@@ -5,7 +7,6 @@
 
 #toggle-theme {
   font-size: 1.5rem;
-  border: solid 2.5px #45a049;
   border-radius: 5px;
   padding: 0.4rem;
   color: #e0e0e0;
@@ -54,6 +55,10 @@ body.dark-theme {
 }
 
 @media (max-width: 425px) {
+  .logo-container {
+    display: none;
+  }
+  
   #toggle-theme {
     margin: auto 0.8rem;
   }
