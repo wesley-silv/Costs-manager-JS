@@ -140,7 +140,7 @@ document
       displayResult('result', `R$ ${paymentResult.toFixed(2)}`)
       displayResult('tithe', `R$ ${tithe.toFixed(2)}`)
       displayResult('after-payment', `R$ ${afterPayment.toFixed(2)}`)
-      displayResult('percent', `${percentages.join(', ')}%`)
+      displayResult('percent', `${percentages.join('% ')}`)
       displayResult('mean-percent', `${meanPercentage.toFixed(2)}%`)
       resultsContainer.style.display = 'flex'
 

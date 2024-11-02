@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chart": "^0.1.2",
+    "chart.js": "^4.4.6",
     "express": "^4.21.1",
     "nodemon": "^3.1.7"
   },
