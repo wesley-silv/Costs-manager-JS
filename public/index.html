@@ -150,6 +150,7 @@
             <th>Devolução</th>
             <th>Proventos restantes</th>
             <th>Percentuais</th>
+            <th>Gráfico (%)</th>
             <th>Média percentual</th>
           </tr>
         </thead>
@@ -159,13 +160,13 @@
             <td id="tithe"></td>
             <td id="after-payment"></td>
             <td id="percent"></td>
+            <td>
+              <canvas id="percentChart"></canvas>
+            </td>
             <td id="mean-percent"></td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="chart-container">
-      <canvas id="percentChart"></canvas>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/scripts/main.js"></script>
