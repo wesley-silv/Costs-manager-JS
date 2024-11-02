@@ -3,62 +3,55 @@
 .controls {
   display: flex;
   justify-content: right;
+  align-items: center;
 }
 
 #toggle-theme {
-  font-size: 1.5rem;
-  border-radius: 5px;
-  padding: 0.4rem;
+  font-size: 1.4rem;
   color: #e0e0e0;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: transform 0.2s;
 }
 
-body.dark-theme {
+.dark-theme {
   background-color: #170c0c;
   color: #e0e0e0;
 }
 
-.dark-theme .navigation {
-  background-color: #333;
-}
-
+.dark-theme .header,
 .dark-theme .view-results button {
-  background-color: #36366c;
-  border: solid 2.5px #36366c;
-  color: #e0e0e0;
+  background-color: #4caf50;
+  color: #fff;
 }
 
-.dark-theme section {
-  background-color: #333;
-  color: #e0e0e0;
-}
-
+.dark-theme h2,
+.dark-theme section,
 .dark-theme label {
+  background-color: #333;
   color: #e0e0e0;
 }
 
 .dark-theme input {
   background-color: #170c0c;
-  border: none;
   color: #e0e0e0;
+  border: none;
 }
 
 /* Toggle theme of table */
 .dark-theme th {
-  background-color: #333;
-  color: #e0e0e0;
+  background-color: #4caf50;
+  color: #fff;
 }
 
 .dark-theme tbody tr:hover {
-  background-color: #36366c;
+  background-color: #333;
 }
 
 @media (max-width: 425px) {
   .logo-container {
     display: none;
   }
-  
+
   #toggle-theme {
     margin: auto 0.8rem;
   }
