@@ -20,7 +20,7 @@
 
 .dark-theme .header,
 .dark-theme .view-results button {
-  background-color: #4caf50;
+  background-color: #333;
   color: #fff;
 }
 
@@ -37,14 +37,78 @@
   border: none;
 }
 
-/* Toggle theme of table */
 .dark-theme th {
-  background-color: #4caf50;
+  background-color: #333;
   color: #fff;
 }
 
 .dark-theme tbody tr:hover {
   background-color: #333;
+}
+
+.custom-theme {
+  background-color: #283149;
+  color: #fefefe;
+}
+
+.custom-theme .header,
+.custom-theme .view-results button {
+  background-color: #404b69;
+  color: #d3d3d3;
+}
+
+.custom-theme h2,
+.custom-theme section,
+.custom-theme label {
+  background-color: #404b69;
+  color: #fefefe;
+}
+
+.custom-theme input {
+  background-color: #283149;
+  color: #fefefe;
+  border: none;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  overflow: hidden;
+  width: max-content;
+  transition: max-height 0.4s ease-in-out;
+  max-height: 3.25rem;
+}
+
+.options:hover {
+  max-height: 11rem;
+}
+
+.icon-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0.5rem auto;
+}
+
+.options i {
+  font-size: 1.4rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.options i:hover {
+  color: #283149;
+}
+
+.custom-theme th {
+  background-color: #404b69;
+  color: #d3d3d3;
+}
+
+.custom-theme tbody tr:hover {
+  background-color: #505d75;
 }
 
 @media (max-width: 425px) {
