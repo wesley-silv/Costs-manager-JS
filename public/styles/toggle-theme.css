@@ -118,4 +118,8 @@ i:hover {
   #toggle-theme {
     margin: auto 0.8rem;
   }
+
+  .options:hover {
+    max-height: 10.4rem;
+  }
 }

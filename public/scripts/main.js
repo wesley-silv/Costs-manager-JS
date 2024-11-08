@@ -3,6 +3,27 @@ function getFloatValue(id) {
   return parseFloat(document.getElementById(id).value) || 0
 }
 
+// Save data with localStorage
+function saveDataToLocalStorage(ids, values) {
+  const data = {}
+  ids.forEach((id, index) => {
+    data[id] = values[index]
+  })
+  localStorage.setItem('userData', JSON.stringify(data))
+}
+
+function loadDataFromLocalStorage(ids) {
+  const data = JSON.parse(localStorage.getItem('userData'))
+  if (data) {
+    ids.forEach(id => {
+      const inputElement = document.getElementById(id)
+      if (inputElement) {
+        inputElement.value = data[id] || 0
+      }
+    })
+  }
+}
+
 // Build the message to presentation
 function displayResult(id, message) {
   const element = document.getElementById(id)
@@ -20,22 +41,33 @@ function updateChart(percentages, labels) {
 
   // Fuction to create Pie Chart
   window.myPieChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'doughnut',
     data: {
       labels: labels,
       datasets: [
         {
           data: percentages,
           backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#FF9F40',
-            '#4BC0C0',
-            '#9966FF',
-            '#C9CBCF'
+            'rgba(255, 99, 132, 0.9)',
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(255, 120, 144, 0.8)',
+            'rgba(255, 120, 144, 0.5)',
+            'rgba(255, 80, 105, 0.7)',
+
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(89, 205, 155, 0.8)',
+            'rgba(89, 205, 155, 0.5)',
+            'rgba(64, 160, 140, 0.7)',
+
+            'rgba(54, 162, 235, 0.9)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(70, 130, 180, 0.8)',
+            'rgba(70, 130, 180, 0.5)',
+            'rgba(100, 120, 200, 0.7)'
           ],
-          borderColor: ['#ffffff'],
+          hoverOffset: 4,
+          borderColor: ['#FFF'],
           borderWidth: 1
         }
       ]
@@ -111,6 +143,9 @@ document
       savings
     ] = values
 
+    // Save data to localStorage
+    saveDataToLocalStorage(ids, values)
+
     // Realize the math calcs
     const totalProvments = provments + extraGain
     if (totalProvments === 0) {
@@ -154,3 +189,26 @@ document
       resultsContainer.style.display = 'none'
     }
   })
+
+// Load data from localStorage on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const ids = [
+    'provments',
+    'extra-gain',
+    'foods',
+    'home',
+    'water',
+    'electric-energy',
+    'cook-gas',
+    'internet',
+    'phone',
+    'credit',
+    'leisure',
+    'clothing',
+    'transport',
+    'fixed-income',
+    'variable-income',
+    'savings'
+  ]
+  loadDataFromLocalStorage(ids)
+})
