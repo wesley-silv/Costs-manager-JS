@@ -18,8 +18,8 @@ app.use(
 app.use(express.urlencoded({ extended: true }))
 
 // Middleware para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'src')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // Função de middleware para verificar autenticação
 function requireAuth(req, res, next) {
@@ -63,7 +63,7 @@ app.get('/logout', (req, res) => {
 
 // Rota para página inicial (proteção com autenticação)
 app.get('/', requireAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(__dirname, 'src', 'views', 'index.html'))
 })
 
 app.listen(port, () => {
