@@ -18,6 +18,7 @@ app.use(
 app.use(express.urlencoded({ extended: true }))
 
 // Middleware para servir arquivos estáticos
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'src')))
 
 // Função de middleware para verificar autenticação
@@ -31,7 +32,7 @@ function requireAuth(req, res, next) {
 
 // Rota de Login - renderiza o formulário de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src', 'views', 'login.html')) 
+  res.sendFile(path.join(__dirname, 'src', 'views', 'login.html'))
 })
 
 // Rota para processar o Login
@@ -39,7 +40,10 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body
 
   // Autenticação básica: substitua isso por verificação com banco de dados
-  if (username === 'wesleysilvaconceicao@outlook.com' && password === 'financial') {
+  if (
+    username === 'wesleysilvaconceicao@outlook.com' &&
+    password === 'financial'
+  ) {
     req.session.authenticated = true
     res.redirect('/')
   } else {
