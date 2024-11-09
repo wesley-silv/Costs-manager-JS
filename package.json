@@ -18,7 +18,7 @@
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0"
   },
-  "description": "",
+  "description": "<p align=\"center\">\r   <img src=\"https://via.placeholder.com/150\" alt=\"Logo do Financial Manager\" />\r </p>",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
