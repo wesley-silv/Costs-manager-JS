@@ -18,8 +18,8 @@ app.use(
 app.use(express.urlencoded({ extended: true }))
 
 // Middleware para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname, 'src')))
+app.use(express.static(path.join(__dirname, 'public'))) // Servir public primeiro
+app.use(express.static(path.join(__dirname, 'src'))) // Depois src, caso arquivos adicionais estejam lá
 
 // Função de middleware para verificar autenticação
 function requireAuth(req, res, next) {
@@ -30,9 +30,18 @@ function requireAuth(req, res, next) {
   }
 }
 
+// Redirecionar para /login como página inicial
+app.get('/', (req, res) => {
+  if (!req.session.authenticated) {
+    res.redirect('/login')
+  } else {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  }
+})
+
 // Rota de Login - renderiza o formulário de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'))
+  res.sendFile(path.join(__dirname, 'public', 'views', 'login.html')) // Confirme a estrutura da pasta
 })
 
 // Rota para processar o Login
@@ -40,7 +49,7 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body
 
   // Autenticação básica: substitua isso por verificação com banco de dados
-  if (username === 'wesley silva' && password === 'financialManager') {
+  if (username === 'wesleysilva' && password === 'financial') {
     req.session.authenticated = true
     res.redirect('/')
   } else {
@@ -56,11 +65,6 @@ app.get('/logout', (req, res) => {
     }
     res.redirect('/login')
   })
-})
-
-// Rota para página inicial (proteção com autenticação)
-app.get('/', requireAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 app.listen(port, () => {
