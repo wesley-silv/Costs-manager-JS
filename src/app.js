@@ -18,12 +18,8 @@ app.use(
 app.use(express.urlencoded({ extended: true }))
 
 // Middleware para servir arquivos estáticos
-// app.use(express.static(path.join(__dirname, 'public')))
-// app.use(express.static(path.join(__dirname, 'src')))
-
-app.use(express.static(path.join(__dirname, '..', 'public')))
-app.use(express.static(path.join(__dirname, 'styles')))
-app.use(express.static(path.join(__dirname, 'scripts')))
+app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, '../src')))
 
 // Função de middleware para verificar autenticação
 function requireAuth(req, res, next) {
@@ -36,7 +32,7 @@ function requireAuth(req, res, next) {
 
 // Rota de Login - renderiza o formulário de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'))
+  res.sendFile(path.join(__dirname, '../public/views/login.html'))
 })
 
 // Rota para processar o Login
@@ -44,7 +40,7 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body
 
   // Autenticação básica: substitua isso por verificação com banco de dados
-  if (username === 'wesley silva' && password === 'financialManager') {
+  if (username === 'wesleysilva' && password === 'financial') {
     req.session.authenticated = true
     res.redirect('/')
   } else {
@@ -64,7 +60,7 @@ app.get('/logout', (req, res) => {
 
 // Rota para página inicial (proteção com autenticação)
 app.get('/', requireAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
 app.listen(port, () => {
