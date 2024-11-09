@@ -10,7 +10,7 @@ app.use(
     secret: 'chave-secreta', // Use uma chave secreta forte
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Configure como 'true' em produção com HTTPS
+    cookie: { secure: true } // Configure como 'true' em produção com HTTPS
   })
 )
 
@@ -18,8 +18,8 @@ app.use(
 app.use(express.urlencoded({ extended: true }))
 
 // Middleware para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, 'public'))) // Servir public primeiro
-app.use(express.static(path.join(__dirname, 'src'))) // Depois src, caso arquivos adicionais estejam lá
+app.use(express.static(path.join(__dirname, '..', 'public')))
+app.use(express.static(path.join(__dirname, '..', 'src')))
 
 // Função de middleware para verificar autenticação
 function requireAuth(req, res, next) {
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
 // Rota de Login - renderiza o formulário de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views', 'login.html')) // Confirme a estrutura da pasta
+  res.sendFile(path.join(__dirname, '..', 'public', 'views', 'login.html'))
 })
 
 // Rota para processar o Login
