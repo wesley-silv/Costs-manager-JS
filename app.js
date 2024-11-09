@@ -32,7 +32,7 @@ function requireAuth(req, res, next) {
 
 // Rota de Login - renderiza o formulário de login
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'login.html'))
+  res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'))
 })
 
 // Rota para processar o Login
@@ -40,10 +40,7 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body
 
   // Autenticação básica: substitua isso por verificação com banco de dados
-  if (
-    username === 'wesleysilvaconceicao@outlook.com' &&
-    password === 'financial'
-  ) {
+  if (username === 'wesley silva' && password === 'financialManager') {
     req.session.authenticated = true
     res.redirect('/')
   } else {
@@ -63,7 +60,7 @@ app.get('/logout', (req, res) => {
 
 // Rota para página inicial (proteção com autenticação)
 app.get('/', requireAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html'))
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 app.listen(port, () => {
