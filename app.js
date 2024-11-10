@@ -7,7 +7,7 @@ const port = 3000
 // Middleware para gerenciar sessões
 app.use(
   session({
-    secret: 'secret-key', // Use uma chave secreta forte
+    secret: 'chave-secreta', // Use uma chave secreta forte
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false } // Configure como 'true' em produção com HTTPS
@@ -18,8 +18,8 @@ app.use(
 app.use(express.urlencoded({ extended: true }))
 
 // Middleware para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, '/public')))
-app.use(express.static(path.join(__dirname, '/src')))
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'src')))
 
 // Função de middleware para verificar autenticação
 function requireAuth(req, res, next) {
