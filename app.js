@@ -19,7 +19,6 @@ app.use(express.urlencoded({ extended: true }))
 
 // Middleware para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname, 'src')))
 
 // Função de middleware para verificar autenticação
 function requireAuth(req, res, next) {
