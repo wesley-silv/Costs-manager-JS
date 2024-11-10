@@ -7,7 +7,7 @@ const port = 3000
 // Middleware para gerenciar sessões
 app.use(
   session({
-    secret: 'chave-secreta', // Use uma chave secreta forte
+    secret: 'secret-key', // Use uma chave secreta forte
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false } // Configure como 'true' em produção com HTTPS
@@ -39,7 +39,7 @@ app.post('/login', (req, res) => {
   const { username, password } = req.body
 
   // Autenticação básica: substitua isso por verificação com banco de dados
-  if (username === 'wesleysilvaconceicao@outlook.com' && password === 'financial') {
+  if (username === 'wesleysilva' && password === 'financial') {
     req.session.authenticated = true
     res.redirect('/')
   } else {
