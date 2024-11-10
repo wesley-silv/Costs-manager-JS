@@ -62,6 +62,11 @@ app.get('/', requireAuth, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
+// Tornando a rota de login a página inicial
+app.get('*', (req, res) => {
+  res.redirect('/login')
+})
+
 app.listen(port, () => {
   console.log(`Servidor executando em http://localhost:${port}/login`)
 })
