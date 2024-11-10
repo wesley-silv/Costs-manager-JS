@@ -40,30 +40,6 @@
   background-color: #333;
 }
 
-.custom-theme {
-  background-color: #283149;
-  color: #fefefe;
-}
-
-.custom-theme .header,
-.custom-theme .view-results button {
-  background-color: #404b69;
-  color: #d3d3d3;
-}
-
-.custom-theme h2,
-.custom-theme section,
-.custom-theme label {
-  background-color: #404b69;
-  color: #fefefe;
-}
-
-.custom-theme input {
-  background-color: #283149;
-  color: #fefefe;
-  border: none;
-}
-
 .options {
   display: flex;
   gap: 0.4rem;
@@ -75,11 +51,11 @@
   overflow: hidden;
   width: max-content;
   transition: max-height 0.4s ease-in-out;
-  max-height: 3.2rem;
+  max-height: 3rem;
 }
 
 .options:hover {
-  max-height: 10.4rem;
+  max-height: 8rem;
 }
 
 .icon-group {
@@ -99,15 +75,6 @@
 .options i:hover,
 i:hover {
   color: #170c0c;
-}
-
-.custom-theme th {
-  background-color: #404b69;
-  color: #d3d3d3;
-}
-
-.custom-theme tbody tr:hover {
-  background-color: #505d75;
 }
 
 @media (max-width: 425px) {

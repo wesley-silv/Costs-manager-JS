@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/toggle-theme.css" />
+    <link rel="stylesheet" href="/styles/sidebar.css" />
     <link rel="stylesheet" href="/styles/table-results.css" />
     <link rel="stylesheet" href="/styles/graphic.css" />
 
@@ -25,6 +26,7 @@
         />
       </a> -->
       <h1>Gerenciador Financeiro</h1>
+      <i class="bi bi-list" id="open-sidebar" aria-label="Abrir menu"></i>
       <section class="options">
         <i class="bi bi-moon-fill" id="toggle-theme" title="Tema Escuro"></i>
         <div class="icon-group">
@@ -34,11 +36,6 @@
             title="Tema Claro"
           ></i>
           <i
-            class="bi bi-palette-fill"
-            id="custom-theme"
-            title="Tema Personalizado"
-          ></i>
-          <i
             class="bi bi-display"
             id="system-theme"
             title="Tema do Sistema"
@@ -46,7 +43,17 @@
         </div>
       </section>
     </header>
-
+    <aside id="sidebar" class="sidebar">
+      <i class="bi bi-x" id="close-sidebar" aria-label="Fechar menu"></i>
+      <nav>
+        <ul>
+          <li><a href="#proceeds-heading">Provisões e Ganhos</a></li>
+          <li><a href="#essentials-heading">Despesas Essenciais</a></li>
+          <li><a href="#not-essentials-heading">Despesas Não Essenciais</a></li>
+          <li><a href="#investments-heading">Investimentos</a></li>
+        </ul>
+      </nav>
+    </aside>
     <main class="main-container">
       <section aria-labelledby="proceeds-heading" class="proceeds">
         <h2 id="proceeds-heading">Provisões e Ganhos</h2>
@@ -188,5 +195,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/scripts/main.js"></script>
     <script src="/scripts/toggle-theme.js"></script>
+    <script src="/scripts/sidebar.js"></script>
   </body>
 </html>
