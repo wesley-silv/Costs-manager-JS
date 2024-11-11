@@ -7,6 +7,47 @@
   transition: transform 0.2s;
 }
 
+.options {
+  display: flex;
+  gap: 0.4rem;
+  background-color: #4caf50;
+  border-radius: 0.2rem;
+  opacity: 0.8;
+  flex-direction: column;
+  align-items: start;
+  overflow: hidden;
+  width: max-content;
+  transition: max-height 0.4s ease-in-out;
+  max-height: 3rem;
+  position: absolute;
+  z-index: 999;
+  top: 1rem;
+  right: 4rem;
+}
+
+.options:hover {
+  max-height: 8rem;
+}
+
+.icon-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem auto;
+  gap: 0.5rem;
+}
+
+.options i {
+  font-size: 1.4rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.options i:hover,
+i:hover {
+  color: #170c0c;
+}
+
 .dark-theme {
   background-color: #170c0c;
   color: #e0e0e0;
@@ -38,43 +79,6 @@
 
 .dark-theme tbody tr:hover {
   background-color: #333;
-}
-
-.options {
-  display: flex;
-  gap: 0.4rem;
-  background-color: #4caf50;
-  border-radius: 0.2rem;
-  opacity: 0.8;
-  flex-direction: column;
-  align-items: start;
-  overflow: hidden;
-  width: max-content;
-  transition: max-height 0.4s ease-in-out;
-  max-height: 3rem;
-}
-
-.options:hover {
-  max-height: 8rem;
-}
-
-.icon-group {
-  display: flex;
-  flex-direction: column;
-  margin: 0.5rem auto;
-  gap: 0.5rem;
-}
-
-.options i {
-  font-size: 1.4rem;
-  color: #e0e0e0;
-  cursor: pointer;
-  transition: color 0.3s, transform 0.2s;
-}
-
-.options i:hover,
-i:hover {
-  color: #170c0c;
 }
 
 @media (max-width: 425px) {
