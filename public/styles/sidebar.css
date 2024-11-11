@@ -7,11 +7,10 @@
   width: 250px;
   height: 100%;
   background-color: #45a049;
-  opacity: 0.8;
+  opacity: 0.9;
   color: #fff;
   transition: right 0.3s ease;
-  box-shadow: -4px 0 8px #45a049;
-  z-index: 1000;
+  z-index: 999;
 }
 
 .sidebar.open {
@@ -29,7 +28,7 @@
 }
 
 .sidebar nav ul li a {
-  color: #ffffff;
+  color: #e0e0e0;
   text-decoration: none;
   font-size: 1.2rem;
 }
@@ -40,9 +39,6 @@
   color: #e0e0e0;
   font-size: 2rem;
   cursor: pointer;
-  position: absolute;
-  top: 2rem;
-  right: 5rem;
 }
 
 #close-sidebar {
@@ -52,6 +48,6 @@
   font-size: 2.2rem;
   cursor: pointer;
   position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
+  top: 1.4rem;
+  right: 1.2rem;
 }
