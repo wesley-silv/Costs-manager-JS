@@ -4,23 +4,23 @@ const session = require('express-session')
 const app = express()
 const port = 3000
 
-// Middleware para gerenciar sessões
+// Middleware to sections manager
 app.use(
   session({
-    secret: 'chave-secreta', // Use uma chave secreta forte
+    secret: 'secret-key', // Use the hard secret key
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Configure como 'true' em produção com HTTPS
+    cookie: { secure: false } // Config such as 'true' in production in HTTPS
   })
 )
 
-// Middleware para tratar dados de formulários
+// Middleware to treating data from form
 app.use(express.urlencoded({ extended: true }))
 
-// Middleware para servir arquivos estáticos
+// Middleware to provide statics files
 app.use(express.static(path.join(__dirname, 'public')))
 
-// Função de middleware para verificar autenticação
+// Meddleware function to check authentication
 function requireAuth(req, res, next) {
   if (req.session.authenticated) {
     next()
@@ -29,16 +29,16 @@ function requireAuth(req, res, next) {
   }
 }
 
-// Rota de Login - renderiza o formulário de login
+// Route from login, render the form login.html
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'))
 })
 
-// Rota para processar o Login
+// Route to process login
 app.post('/login', (req, res) => {
   const { username, password } = req.body
 
-  // Autenticação básica: substitua isso por verificação com banco de dados
+  // Basic authentication: replate this to check wiht use a database
   if (username === 'wesleysilva' && password === 'financial') {
     req.session.authenticated = true
     res.redirect('/')
@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
   }
 })
 
-// Rota para Logout
+// Route to logout
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
@@ -57,12 +57,12 @@ app.get('/logout', (req, res) => {
   })
 })
 
-// Rota para página inicial (proteção com autenticação)
+// Route from home page (security with authentication)
 app.get('/', requireAuth, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-// Tornando a rota de login a página inicial
+// Become the route fo login to start the application.
 app.get('*', (req, res) => {
   res.redirect('/login')
 })
