@@ -64,7 +64,11 @@ app.get('/', requireAuth, (req, res) => {
 
 // Become the route fo login to start the application.
 app.get('*', (req, res) => {
-  res.redirect('/login')
+  if (!req.session.authenticated) {
+    res.redirect('/login')
+  } else {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  }
 })
 
 app.listen(port, () => {
