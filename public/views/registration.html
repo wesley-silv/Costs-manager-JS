@@ -9,7 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="/styles/login.css" />
-    <title>Login - Gerenciador financeiro</title>
+    <title>Cadastro - Gerenciador financeiro</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
@@ -17,15 +17,25 @@
   </head>
   <body>
     <div class="login-container">
-      <h2>Login</h2>
-      <form action="/login" method="post">
+      <h2>Cadastro</h2>
+      <form action="/registration" method="post">
         <div class="input-group">
-          <i class="bi bi-person-fill"></i>
+          <i class="bi bi-person-circle"></i>
           <input
             type="text"
-            id="username"
-            name="username"
-            placeholder="Usuário"
+            id="name"
+            name="name"
+            placeholder="Nome"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <i class="bi bi-envelope-fill"></i>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
             required
           />
         </div>
@@ -39,11 +49,18 @@
             required
           />
         </div>
-        <button type="submit" class="login-button">Entrar</button>
+        <div class="input-group">
+          <i class="bi bi-lock-fill"></i>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            placeholder="Confirme a Senha"
+            required
+          />
+        </div>
+        <button type="submit" class="login-button">Cadastrar</button>
       </form>
-      <p class="register-link">
-        Não tem uma conta? <a href="/views/registration.html">Cadastre-se</a>
-      </p>
     </div>
   </body>
 </html>

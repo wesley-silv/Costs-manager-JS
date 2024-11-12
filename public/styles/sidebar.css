@@ -3,8 +3,8 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: -40%;
-  width: 40%;
+  right: -25%;
+  width: 25%;
   height: 100%;
   background-color: #45a049;
   opacity: 0.9;
@@ -50,4 +50,20 @@
   position: absolute;
   top: 1.4rem;
   right: 1.2rem;
+}
+
+/* Provide a responsive layout */
+
+@media (max-width: 425px) {
+  .sidebar {
+    right: -50%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    right: -60%;
+    width: 60%;
+  }
 }
