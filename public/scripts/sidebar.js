@@ -1,17 +1,13 @@
-document.getElementById('open-sidebar').addEventListener('click', () => {
-  const sidebar = document.getElementById('sidebar').classList.add('open')
-  if (sidebar) {
-    document.getElementById('close-sidebar').style.display = 'block'
-  } else {
-    document.getElementById('open-sidebar').style.display = 'none'
-  }
-})
+$(document).ready(function () {
+  $('#open-sidebar').on('click', function () {
+    $('#sidebar').addClass('open')
+    $('#close-sidebar').css('display', 'block')
+    $('#open-sidebar').css('display', 'none')
+  })
 
-document.getElementById('close-sidebar').addEventListener('click', () => {
-  const sidebar = document.getElementById('sidebar').classList.remove('open')
-  if (!sidebar) {
-    document.getElementById('open-sidebar').style.display = 'block'
-  } else {
-    document.getElementById('close-sidebar').style.display = 'none'
-  }
+  $('#close-sidebar').on('click', function () {
+    $('#sidebar').removeClass('open')
+    $('#open-sidebar').css('display', 'block')
+    $('#close-sidebar').css('display', 'none')
+  })
 })
