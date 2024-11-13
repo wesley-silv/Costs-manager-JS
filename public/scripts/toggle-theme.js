@@ -1,42 +1,39 @@
-const toggleThemeBtn = document.getElementById('toggle-theme')
-const lightThemeBtn = document.getElementById('light-theme')
-const systemThemeBtn = document.getElementById('system-theme')
 let currentTheme = 'light'
 
 function applySystemTheme() {
   const prefersDarkScheme = window.matchMedia(
     '(prefers-color-scheme: dark)'
   ).matches
-  document.body.classList.remove('light-theme', 'dark-theme')
+  $('body').removeClass('light-theme dark-theme')
 
   if (prefersDarkScheme) {
-    document.body.classList.add('dark-theme')
+    $('body').addClass('dark-theme')
     currentTheme = 'dark'
   } else {
-    document.body.classList.add('light-theme')
+    $('body').addClass('light-theme')
     currentTheme = 'light'
   }
 }
 
-toggleThemeBtn.addEventListener('click', () => {
-  document.body.classList.remove('light-theme')
-  document.body.classList.add('dark-theme')
-  currentTheme = 'dark'
-})
+$(document).ready(function () {
+  $('#toggle-theme').on('click', function () {
+    $('body').removeClass('light-theme').addClass('dark-theme')
+    currentTheme = 'dark'
+  })
 
-lightThemeBtn.addEventListener('click', () => {
-  document.body.classList.remove('dark-theme')
-  document.body.classList.add('light-theme')
-  currentTheme = 'light'
-})
+  $('#light-theme').on('click', function () {
+    $('body').removeClass('dark-theme').addClass('light-theme')
+    currentTheme = 'light'
+  })
 
-systemThemeBtn.addEventListener('click', () => {
-  applySystemTheme()
-  currentTheme = 'system'
-})
-
-window.addEventListener('load', () => {
-  if (currentTheme === 'system') {
+  $('#system-theme').on('click', function () {
     applySystemTheme()
-  }
+    currentTheme = 'system'
+  })
+
+  $(window).on('load', function () {
+    if (currentTheme === 'system') {
+      applySystemTheme()
+    }
+  })
 })
