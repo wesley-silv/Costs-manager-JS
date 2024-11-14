@@ -38,10 +38,6 @@ body {
   transition: color 0.3s ease-in-out;
 }
 
-.header-title:hover {
-  color: #e0e0e0;
-}
-
 .main-container {
   display: grid;
   grid-template-columns: 1fr;

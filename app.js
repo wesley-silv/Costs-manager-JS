@@ -10,7 +10,10 @@ app.use(
     secret: 'secret-key', // Use the hard secret key
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: process.env.NODE_ENV === 'production' } // Config such as 'true' in production in HTTPS
+    cookie: {
+      // Config such as 'true' in production in HTTPS
+      secure: process.env.NODE_ENV === 'production' && !!process.env.VERCEL_URL
+    }
   })
 )
 
@@ -22,11 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Meddleware function to check authentication
 function requireAuth(req, res, next) {
-  if (req.session.authenticated) {
-    next()
-  } else {
-    res.redirect('/')
-  }
+  req.session.authenticated ? next() : res.redirect('/')
 }
 
 // Route from login, render the form login.html

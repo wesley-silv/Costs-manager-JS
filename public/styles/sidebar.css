@@ -10,7 +10,7 @@
   opacity: 0.9;
   color: #e0e0e0;
   transition: right 0.3s ease;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .sidebar.open {
