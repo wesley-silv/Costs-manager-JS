@@ -1,0 +1,15 @@
+.error-container {
+  max-width: 500px;
+}
+
+h2 {
+  font-size: 5rem;
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}

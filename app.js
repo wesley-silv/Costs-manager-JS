@@ -10,7 +10,7 @@ app.use(
     secret: 'secret-key', // Use the hard secret key
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Config such as 'true' in production in HTTPS
+    cookie: { secure: process.env.NODE_ENV === 'production' } // Config such as 'true' in production in HTTPS
   })
 )
 
@@ -67,7 +67,9 @@ app.get('*', (req, res) => {
   if (!req.session.authenticated) {
     res.redirect('/login')
   } else {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    res
+      .status(404)
+      .sendFile(path.join(__dirname, 'public', 'views', 'error.html'))
   }
 })
 
