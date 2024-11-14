@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/assets/financial-manager-icon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/toggle-theme.css" />
+    <link rel="stylesheet" href="/styles/sidebar.css" />
+    <link rel="stylesheet" href="/styles/table-results.css" />
+    <link rel="stylesheet" href="/styles/graphic.css" />
+
+    <title>Gerenciador Financeiro</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-title">Gerenciador Financeiro</h1>
+      <i class="bi bi-list" id="open-sidebar" aria-label="Abrir menu"></i>
+      <section class="options">
+        <div class="icon-group">
+          <i class="bi bi-moon-fill" id="toggle-theme" title="Tema Escuro"></i>
+          <i
+            class="bi bi-brightness-high-fill"
+            id="light-theme"
+            title="Tema Claro"
+          ></i>
+          <i
+            class="bi bi-display"
+            id="system-theme"
+            title="Tema do Sistema"
+          ></i>
+        </div>
+      </section>
+    </header>
+    <aside id="sidebar" class="sidebar">
+      <i class="bi bi-x" id="close-sidebar" aria-label="Fechar menu"></i>
+      <nav>
+        <ul>
+          <li><a href="#proceeds-heading">Provisões e Ganhos</a></li>
+          <li><a href="#essentials-heading">Despesas Essenciais</a></li>
+          <li><a href="#not-essentials-heading">Despesas Não Essenciais</a></li>
+          <li><a href="#investments-heading">Investimentos</a></li>
+          <li><a href="#table-container">Tabela</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="main-container">
+      <section aria-labelledby="proceeds-heading" class="proceeds">
+        <h2 id="proceeds-heading">Provisões e Ganhos</h2>
+        <div>
+          <label for="provments">Provisões</label>
+          <input
+            type="number"
+            id="provments"
+            aria-describedby="provments-description"
+            placeholder="Digite o valor R$"
+            required
+            autofocus
+          />
+        </div>
+        <div>
+          <label for="extra-gain">Ganhos extras</label>
+          <input
+            type="number"
+            id="extra-gain"
+            placeholder="Digite o valor R$"
+            required
+          />
+        </div>
+      </section>
+
+      <section aria-labelledby="essentials-heading" class="essentials">
+        <h2 id="essentials-heading">Despesas Essenciais</h2>
+        <div>
+          <label for="foods">Alimentação</label>
+          <input type="number" id="foods" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="home">Moradia</label>
+          <input type="number" id="home" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="water">Água</label>
+          <input type="number" id="water" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="electric-energy">Energia Elétrica</label>
+          <input
+            type="number"
+            id="electric-energy"
+            placeholder="Digite o valor R$"
+          />
+        </div>
+        <div>
+          <label for="cook-gas">Gás de Cozinha</label>
+          <input type="number" id="cook-gas" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="internet">Internet</label>
+          <input type="number" id="internet" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="phone">Telefone</label>
+          <input type="number" id="phone" placeholder="Digite o valor R$" />
+        </div>
+      </section>
+
+      <section aria-labelledby="not-essentials-heading" class="not-essentials">
+        <h2 id="not-essentials-heading">Despesas Não Essenciais</h2>
+        <div>
+          <label for="credit">Crédito</label>
+          <input type="number" id="credit" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="leisure">Lazer</label>
+          <input type="number" id="leisure" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="clothing">Vestuário</label>
+          <input type="number" id="clothing" placeholder="Digite o valor R$" />
+        </div>
+        <div>
+          <label for="transport">Transporte</label>
+          <input type="number" id="transport" placeholder="Digite o valor R$" />
+        </div>
+      </section>
+
+      <section aria-labelledby="investments-heading" class="investments">
+        <h2 id="investments-heading">Investimentos</h2>
+        <div>
+          <label for="fixed-income">Renda Fixa</label>
+          <input
+            type="number"
+            id="fixed-income"
+            placeholder="Digite o valor R$"
+          />
+        </div>
+        <div>
+          <label for="variable-income">Renda Variável</label>
+          <input
+            type="number"
+            id="variable-income"
+            placeholder="Digite o valor R$"
+          />
+        </div>
+        <div>
+          <label for="savings">Poupança</label>
+          <input type="number" id="savings" placeholder="Digite o valor R$" />
+        </div>
+      </section>
+    </main>
+
+    <div class="view-results">
+      <button role="button" aria-label="Visualizar resultados">
+        Visualizar Resultados
+      </button>
+    </div>
+
+    <div class="table-container" id="table-container" aria-live="polite">
+      <table class="results">
+        <thead>
+          <tr>
+            <th>Despesas</th>
+            <th>Devolução</th>
+            <th>Proventos restantes</th>
+            <th>Percentuais (%)</th>
+            <th>Gráfico (%)</th>
+            <th>Média percentual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="result"></td>
+            <td id="tithe"></td>
+            <td id="after-payment"></td>
+            <td id="percent"></td>
+            <td>
+              <canvas id="percentChart"></canvas>
+            </td>
+            <td id="mean-percent"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/toggle-theme.js"></script>
+    <script src="/scripts/sidebar.js"></script>
+  </body>
+</html>

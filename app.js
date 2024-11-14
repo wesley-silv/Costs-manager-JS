@@ -25,13 +25,13 @@ function requireAuth(req, res, next) {
   if (req.session.authenticated) {
     next()
   } else {
-    res.redirect('/login')
+    res.redirect('/')
   }
 }
 
 // Route from login, render the form login.html
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'views', 'login.html'))
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 // Route to process login
@@ -41,7 +41,7 @@ app.post('/login', (req, res) => {
   // Basic authentication: replate this to check wiht use a database
   if (username === 'wesleysilva' && password === 'financial') {
     req.session.authenticated = true
-    res.redirect('/')
+    res.redirect('/dashboard')
   } else {
     res.send('Credenciais inválidas! Tente novamente.')
   }
@@ -53,19 +53,19 @@ app.get('/logout', (req, res) => {
     if (err) {
       return res.send('Erro ao sair da sessão.')
     }
-    res.redirect('/login')
+    res.redirect('/')
   })
 })
 
 // Route from home page (security with authentication)
-app.get('/', requireAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+app.get('/dashboard', requireAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'views', 'dashboard.html'))
 })
 
 // Become the route fo login to start the application.
 app.get('*', (req, res) => {
   if (!req.session.authenticated) {
-    res.redirect('/login')
+    res.redirect('/')
   } else {
     res
       .status(404)
@@ -74,5 +74,5 @@ app.get('*', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Servidor executando em http://localhost:${port}/login`)
+  console.log(`Servidor executando em http://localhost:${port}/`)
 })
