@@ -16,19 +16,21 @@ function applySystemTheme() {
 }
 
 $(document).ready(function () {
-  $('#toggle-theme').on('click', function () {
-    $('body').removeClass('light-theme').addClass('dark-theme')
-    currentTheme = 'dark'
-  })
+  $('#theme-switcher').on('change', function () {
+    const selectedTheme = $(this).val()
 
-  $('#light-theme').on('click', function () {
-    $('body').removeClass('dark-theme').addClass('light-theme')
-    currentTheme = 'light'
-  })
+    $('body').removeClass('light-theme dark-theme')
 
-  $('#system-theme').on('click', function () {
-    applySystemTheme()
-    currentTheme = 'system'
+    if (selectedTheme === 'dark') {
+      $('body').addClass('dark-theme')
+      currentTheme = 'dark'
+    } else if (selectedTheme === 'light') {
+      $('body').addClass('light-theme')
+      currentTheme = 'light'
+    } else if (selectedTheme === 'system') {
+      applySystemTheme()
+      currentTheme = 'system'
+    }
   })
 
   $(window).on('load', function () {
