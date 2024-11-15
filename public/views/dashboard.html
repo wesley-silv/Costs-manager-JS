@@ -19,24 +19,14 @@
   <body>
     <header class="header">
       <h1 class="header-title">Gerenciador Financeiro</h1>
+      <div class="theme-selector">
+        <select id="theme-switcher" class="form-select">
+          <option value="light" selected>&#x263C; Claro</option>
+          <option value="dark">&#x263E; Escuro</option>
+          <option value="system">&#x2699; Sistema</option>
+        </select>
+      </div>
       <i class="bi bi-list" id="open-sidebar" aria-label="Abrir menu"></i>
-      <section class="options">
-        <div class="icon-group">
-          <i class="bi bi-moon-fill" id="toggle-theme" title="Tema Escuro">
-            Escuro</i
-          >
-          <i
-            class="bi bi-brightness-high-fill"
-            id="light-theme"
-            title="Tema Claro"
-          >
-            Claro</i
-          >
-          <i class="bi bi-display" id="system-theme" title="Tema do Sistema">
-            Sistema</i
-          >
-        </div>
-      </section>
     </header>
     <aside id="sidebar" class="sidebar">
       <i class="bi bi-x" id="close-sidebar" aria-label="Fechar menu"></i>
